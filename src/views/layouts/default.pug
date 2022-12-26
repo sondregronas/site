@@ -1,6 +1,7 @@
 - var title = title
 - var og_image = favicon
 - var og_description = description
+- var year = year
 
 !!! 5
 head
@@ -11,6 +12,7 @@ head
 
     link(rel='icon' href=favicon)
     link(rel='stylesheet' href='style.css')
+    link(rel='stylesheet' href='tailwind.min.css')
 
     meta(name='title' property='og:title' content=title)
     meta(name='description' property='og:description' content=(og_description))
@@ -36,5 +38,4 @@ body(class='bg-gray-800 text-gray-100 font-sans min-h-screen flex flex-col')
         block content
     footer(class='bg-gray-900 p-4')
         block footer
-            p.text-center.leading-4.text-gray-500.text-xl
-                | &copy; Sondre Grønås <script>document.write(new Date().getFullYear())</script>
+            p.text-center.leading-4.text-gray-500.text-xl &copy; Sondre Grønås #{year}

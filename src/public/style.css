@@ -1,5 +1,3 @@
-@import 'tailwind.min.css';
-
 .rainbow-text{
     background: linear-gradient(60deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #FFFF00, #FF0000, #FF7F00);
     background-size: 800% 800%;
