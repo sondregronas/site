@@ -1,12 +1,13 @@
 extends views/layouts/default.pug
 
 block content
-    div(class='my-56 flex flex-col items-center')
-        h1(class='text-5xl') Hi there 👋
-        .my-8
-        p(class='text-2xl')
-            = "I'm "
-            span.rainbow-text.font-medium Sondre Grønås
-            = ", a media engineer and IT-nørd."
-        .my-16
-        p(class='text-2xl') 🚧 We're currently under construction, but we'll be back soon. 🚧
+    main.flex-1.bg-gray-800.text-gray-100
+        section.py-56.flex.flex-col.items-center
+            h1(class='text-5xl') Hi there 👋
+            .my-8
+            p(class='text-2xl')
+                = "I'm "
+                span.rainbow-text.font-medium Sondre Grønås
+                = ", a media engineer and IT-nørd."
+            .my-16
+            p(class='text-2xl') 🚧 We're currently under construction, but we'll be back soon. 🚧

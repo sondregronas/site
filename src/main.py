@@ -1,9 +1,11 @@
 import os
 from __init__ import write_html, public_to_dist
+from clients import CLIENTS
 from datetime import datetime
 
 pages = {
     'views/index.pug': {},
+    'views/clients.pug': {'clients': CLIENTS},
 }
 
 metadata = {
