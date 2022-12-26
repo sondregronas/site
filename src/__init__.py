@@ -24,5 +24,5 @@ def write_html(template, pug_data, path='', dry_run=False):
 
     if not dry_run:
         os.makedirs(os.path.dirname(path), exist_ok=True)
-        open(path, 'w').write(html.encode('utf-8').decode('windows-1252'))
+        open(path, 'wb').write(html.encode('utf-8'))
     return html
