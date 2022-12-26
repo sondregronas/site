@@ -1,0 +1,40 @@
+- var title = title
+- var og_image = favicon
+- var og_description = description
+
+!!! 5
+head
+    title=title
+
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+
+    link(rel='icon' href=favicon)
+    link(rel='stylesheet' href='style.css')
+
+    meta(name='title' property='og:title' content=title)
+    meta(name='description' property='og:description' content=(og_description))
+    meta(name='image' property='og:image' content=(og_image))
+    meta(name='type' property='og:type' content='website')
+    meta(name='locale' property='og:locale' content='en_US')
+
+    block head
+    block scripts
+
+body(class='bg-gray-800 text-gray-100 font-sans min-h-screen flex flex-col')
+    nav(class='bg-gray-900 p-4')
+        div(class='container mx-auto')
+            block nav
+                div(class='flex justify-between items-center')
+                    a(href='/' class='text-2xl font-bold')
+                        // img(src=favicon class='w-16 h-16 rounded-full' alt='logo')
+                        | Sondre Grønås
+                    div(class='flex justify-between items-center space-x-4')
+                        a(href='https://github.com/sondregronas' target='_blank' class='text-xl') GitHub
+                        a(href='mailto:hello@sondregronas.com' class='text-xl') Contact
+    main(class='container mx-auto p-4 space-y-4 flex-1 flex flex-col')
+        block content
+    footer(class='bg-gray-900 p-4')
+        block footer
+            p.text-center.leading-4.text-gray-500.text-xl
+                | &copy; Sondre Grønås <script>document.write(new Date().getFullYear())</script>
