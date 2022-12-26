@@ -1,5 +1,5 @@
 import os
-from src import write_html, public_to_dist
+from __init__ import write_html, public_to_dist
 
 pages = {
     'views/index.pug': {},
