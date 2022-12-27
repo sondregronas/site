@@ -16,4 +16,4 @@ CLIENTS = [Client(name=row['name'],
                   logo=row['logo'],
                   project=row['project'],
                   url=row['url'])
-           for row in DictReader(open('clients.csv', newline=''))]
+           for row in DictReader(open('clients.csv'))]
