@@ -47,12 +47,15 @@ jobs:
       - name: Build pages
         working-directory: ./src
         run: python main.py
+        
+      - name: Generate artifact
+        run: tar -czvf pages.tar.gz dist
 
       - name: Upload artifact
         uses: actions/upload-artifact@v1
         with:
           name: github-pages
-          path: dist/
+          path: pages.tar.gz
 
   deploy:
     environment:
