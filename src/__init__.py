@@ -1,6 +1,7 @@
 """Simple Pug rendering for Python"""
 import os
 import shutil
+
 from jinja2 import Environment, FileSystemLoader
 
 env = Environment(
