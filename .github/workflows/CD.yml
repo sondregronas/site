@@ -8,21 +8,16 @@ on:
       - 'README.md'
 
 jobs:
-  deploy:
+  build-gh-pages:
     name: Build GH Pages
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     permissions:
-      pages: write
-      id-token: write
       contents: write
     if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        
+
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
@@ -38,17 +33,13 @@ jobs:
           pip install setuptools wheel
           pip install -r requirements.txt
           npm install tailwindcss
-        
+
       - name: Build pages
         working-directory: ./src
         run: python main.py
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: github-pages
-          path: ./dist
-
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+        uses: JamesIves/github-pages-deploy-action@releases/v4
+        with:
+          branch: gh-pages
+          folder: dist
