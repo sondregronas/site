@@ -1,11 +1,15 @@
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+}
 
-.rainbow-text{
-    background: linear-gradient(60deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #FFFF00, #FF0000, #FF7F00);
+.rainbow-text {
+    background-image: linear-gradient(60deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #FFFF00, #FF0000, #FF7F00);
     background-size: 800% 800%;
     animation: rainbow 100s ease infinite;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    padding-bottom: 2rem;
+    margin-bottom: -2rem;
 }
 
 /* Animate the background gradient */
