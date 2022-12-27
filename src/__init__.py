@@ -11,12 +11,12 @@ env = Environment(
 )
 
 
-def public_to_dist():
+def public_to_dist() -> None:
     """Copy contents of public to ../dist"""
     shutil.copytree('public', '../dist', dirs_exist_ok=True)
 
 
-def write_html(template, pug_data, path='', dry_run=False):
+def write_html(template: str, pug_data: dict, path: str = '', dry_run: bool = False) -> str:
     html = env.get_template(template).render(pug_data)
 
     if pug_data.get('url', ''):
@@ -30,11 +30,10 @@ def write_html(template, pug_data, path='', dry_run=False):
     return html
 
 
-CLIENTS = [
-    {'name': row['name'],
-     'role': row['role'],
-     'logo': row['logo'],
-     'project': row['project'],
-     'url': row['url']}
-    for row in DictReader(open('clients.csv', 'r', encoding='utf-8'))
-]
+def get_clients_data() -> list[dict]:
+    return [{'name': row['name'],
+             'role': row['role'],
+             'logo': row['logo'],
+             'project': row['project'],
+             'url': row['url']}
+            for row in DictReader(open('clients.csv', 'r', encoding='utf-8'))]
