@@ -25,9 +25,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
@@ -43,19 +40,19 @@ jobs:
           pip install setuptools wheel
           pip install -r requirements.txt
           npm install tailwindcss
-
+          
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+        
       - name: Build pages
         working-directory: ./src
         run: python main.py
-        
-      - name: Generate artifact
-        run: tar -czvf pages.tar.gz dist
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
           name: github-pages
-          path: pages.tar.gz
+          path: dist
 
   deploy:
     environment:
