@@ -1,4 +1,6 @@
 - var title = title
-- var og_image = favicon
-- var og_description = description
+unless og_image
+    - var og_image = og_image_fallback
+unless og_description
+    - var og_description = og_description_fallback
 - var year = year

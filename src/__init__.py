@@ -1,6 +1,7 @@
 """Simple Pug rendering for Python"""
 import os
 import shutil
+from csv import DictReader
 
 from jinja2 import Environment, FileSystemLoader
 
@@ -27,3 +28,13 @@ def write_html(template, pug_data, path='', dry_run=False):
         os.makedirs(os.path.dirname(path), exist_ok=True)
         open(path, 'wb').write(html.encode('utf-8'))
     return html
+
+
+CLIENTS = [
+    {'name': row['name'],
+     'role': row['role'],
+     'logo': row['logo'],
+     'project': row['project'],
+     'url': row['url']}
+    for row in DictReader(open('clients.csv', 'r', encoding='utf-8'))
+]
