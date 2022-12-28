@@ -1,7 +1,7 @@
 div(class='container mx-auto')
-    div(class='flex justify-between items-center')
-        a(href=base_url class='text-2xl font-bold')
+    div(class='flex justify-between items-center flex-col sm:flex-row text-center')
+        a(href=base_url class='lg:text-2xl text-xl font-bold')
             // img(src=favicon class='w-16 h-16 rounded-full' alt='logo')
             | Sondre Grønås
-        nav(class='flex justify-between items-center space-x-4')
+        nav(class='lg:text-xl flex justify-between items-center space-x-4')
             include views/partials/nav.pug
