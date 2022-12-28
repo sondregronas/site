@@ -37,3 +37,10 @@ def get_clients_data() -> list[dict]:
              'project': row['project'],
              'url': row['url']}
             for row in DictReader(open('clients.csv', 'r', encoding='utf-8'))]
+
+
+def get_podcasts_data() -> list[dict]:
+    return [{'name': row['name'],
+             'logo': row['logo'],
+             'url': row['url']}
+            for row in DictReader(open('podcasts.csv', 'r', encoding='utf-8'))]

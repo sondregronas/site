@@ -1,0 +1,14 @@
+extends views/partials/main.pug
+
+block content
+    section.py-20.flex.flex-col.items-center.text-center
+        h2(class='text-5xl mt-8') Podcast Technician
+        .my-4
+        p I record and edit podcasts. Give them a listen!
+        p
+            = "Need help with yours? Contact me at "
+            a(class="text-blue-200 hover:underline" href='mailto:podcast@sondregronas.com') podcast@sondregronas.com
+            = "."
+        div(class='flex flex-wrap justify-center items-center mt-8 text-center')
+            for podcast in podcasts
+                include views/cards/podcast.pug

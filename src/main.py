@@ -1,7 +1,7 @@
 import os
 from datetime import datetime
 
-from __init__ import write_html, public_to_dist, get_clients_data
+from __init__ import write_html, public_to_dist, get_clients_data, get_podcasts_data
 
 BASE_URL = 'https://sondregronas.github.io/sondregronas.com'
 SITE_NAME = 'Sondre Grønas'
@@ -13,6 +13,8 @@ PAGES = {
     'views/clients.pug': {'title': f'Clients - {SITE_NAME}',
                           'clients': get_clients_data(),
                           'og_description': 'Meet our clients, are you next?'},
+    'views/podcasts.pug': {'title': f'Podcasts - {SITE_NAME}',
+                           'podcasts': get_podcasts_data()},
 }
 
 metadata = {
