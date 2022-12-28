@@ -43,14 +43,16 @@ jobs:
         working-directory: ./src
         run: python main.py
 
-      - name: Prepare artifact
-        run: chown -R $(whoami) dist
+      - name: Create deployment artifact
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+        run: tar -czf "${GITHUB_SHA}".tar.gz dist
 
       - name: Upload artifact
         uses: actions/upload-artifact@v1
         with:
           name: github-pages
-          path: dist
+          path: ${{ github.sha }}.tar.gz
 
       - name: Deploy to GitHub Pages
         id: deployment
