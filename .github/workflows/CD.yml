@@ -2,8 +2,8 @@ name: GitHub Pages
 
 on:
   push:
-    branches: [main]
-    tags: [v*]
+    branches: [ main ]
+    tags: [ v* ]
     paths-ignore:
       - 'README.md'
 
@@ -42,12 +42,12 @@ jobs:
       - name: Build pages
         working-directory: ./src
         run: python main.py
-      
+
       - name: Prepare artifact
         run: chown -R $(whoami) dist
-        
-      - name: Upload production-ready build files
-        uses: actions/upload-artifact@v3
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1
         with:
           name: github-pages
           path: dist
