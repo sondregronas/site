@@ -26,6 +26,7 @@ metadata = {
 }
 
 public_to_dist()
+open('../dist/CNAME', 'w').write(BASE_URL.split('//')[1])
 for page, data in PAGES.items():
     write_html(page, data | metadata)
 
