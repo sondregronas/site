@@ -6,6 +6,10 @@ on:
     tags: [ v* ]
     paths-ignore:
       - 'README.md'
+      
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
   build-gh-pages:
