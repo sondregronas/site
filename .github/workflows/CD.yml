@@ -11,13 +11,8 @@ jobs:
   build-gh-pages:
     name: Build GH Pages
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     permissions:
       contents: write
-      pages: write
-      id-token: write
     if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
     steps:
       - name: Checkout repository
@@ -43,17 +38,8 @@ jobs:
         working-directory: ./src
         run: python main.py
 
-      - name: Create deployment artifact
-        env:
-          GITHUB_SHA: ${{ github.sha }}
-        run: tar -czf "${GITHUB_SHA}".tar.gz dist
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: github-pages
-          path: ${{ github.sha }}.tar.gz
-
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+        uses: JamesIves/github-pages-deploy-action@releases/v4
+        with:
+          branch: gh-pages
+          folder: dist
