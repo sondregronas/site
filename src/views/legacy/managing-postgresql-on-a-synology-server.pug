@@ -1,0 +1,18 @@
+extends views/partials/main.pug
+
+block content
+    section(class="lg:py-52 md:py-32 py-16 flex flex-col items-center text-center")
+        h1(class='lg:text-5xl text-3xl rainbow-text') This article has been deprecated.
+        .my-8
+        p Thank you to all the people who have read this article over the years, or to those who have linked to it - the amount of traffic was quite surprising.
+        br
+        p Unfortunately the solution no longer works reliably (due to updates from both Synology and Resolve. <b>Note: the article was almost <i>5 years old</i></b>).
+        p I have therefore removed the article in its entirety. I apologize for any inconvenience this may cause.
+        br
+        p
+            = "If you are looking for a solution to run PostgreSQL on a Synology NAS, I recommend you look at "
+            a(href='https://github.com/elliotmatson/Docker-Davinci-Resolve-Project-Server#synology' target='_blank' class="text-blue-200 hover:underline") this project by Elliot Matson on GitHub
+            = " instead."
+        p If your Synology supports virtual machines, using that docker container on any VM will be your best bet without too much tinkering.
+        .my-8
+        p I will leave this page up for a while, but it will eventually be removed.
