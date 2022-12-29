@@ -52,7 +52,7 @@ def generate_sitemap(base_url: str) -> None:
                           for page in os.listdir('../dist')
                           if page.endswith('.html') and page not in ['404.html', 'index.html']]
 
-    pages_xml = "\n".join([f"\t<url>\n\t\t<loc>{page}</loc>\n\t</url>" for page in pages])
+    pages_xml = '\n'.join([f'\t<url>\n\t\t<loc>{page}</loc>\n\t</url>' for page in pages])
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n' \
               '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' \
               f'{pages_xml}\n' \
