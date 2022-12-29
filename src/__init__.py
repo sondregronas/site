@@ -44,3 +44,18 @@ def get_podcasts_data() -> list[dict]:
              'logo': row['logo'],
              'url': row['url']}
             for row in DictReader(open('podcasts.csv', 'r', encoding='utf-8'))]
+
+
+def generate_sitemap(base_url: str) -> None:
+    """Generate sitemap.xml"""
+    pages = [base_url] + [f'{base_url}/{page.split(".html")[0]}'
+                          for page in os.listdir('../dist')
+                          if page.endswith('.html') and page not in ['404.html', 'index.html']]
+
+    pages_xml = "\n".join([f"\t<url>\n\t\t<loc>{page}</loc>\n\t</url>" for page in pages])
+    sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n' \
+              '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' \
+              f'{pages_xml}\n' \
+              '</urlset>'
+
+    open('../dist/sitemap.xml', 'w').write(sitemap)

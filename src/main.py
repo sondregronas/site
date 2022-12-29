@@ -1,7 +1,6 @@
-import os
 from datetime import datetime
 
-from __init__ import write_html, public_to_dist, get_clients_data, get_podcasts_data
+from __init__ import *
 
 BASE_URL = 'https://sondregronas.com'
 SITE_NAME = 'Sondre Grønas'
@@ -41,5 +40,6 @@ public_to_dist()
 open('../dist/CNAME', 'w').write(BASE_URL.split('//')[1])
 for page, data in PAGES.items():
     write_html(page, data | metadata)
+generate_sitemap(BASE_URL)
 
 os.system('npx tailwindcss -o ../dist/tailwind.min.css --minify')
