@@ -1,0 +1,23 @@
+extends views/partials/main.pug
+
+block content
+    section(class="lg:pt-40 md:pt-32 py-16 flex flex-col items-center text-center")
+        h1(class='lg:text-5xl text-3xl rainbow-text font-medium') Contact me
+        .my-8
+        p(class='lg:text-lg') Want to talk about a project, or just want to say hi? Emails are the best way to reach me.
+        .my-4
+        p(class='lg:text-lg')
+            = "Send me an email at "
+            a(class="text-blue-200 hover:underline" href="mailto:hello@sondregronas.com")="hello@sondregronas.com "
+            = "and I'll get back to you as soon as possible."
+        div(class="lg:my-16 my-8")
+        p(class='lg:text-md italic') Or, if you prefer, you can find me on social media, where I'm not as active as I should be:
+        div(class="flex flex-wrap justify-center items-center mt-8")
+            a(class="mx-4 hover:scale-110 duration-300 ease-in-out" href="https://twitter.com/sondregronas")
+                img(class="h-8" src="img/logos/twitter.svg")
+            a(class="mx-4 hover:scale-110 duration-300 ease-in-out" href="https://linkedin.com/in/sondre-gr%C3%B8n%C3%A5s")
+                img(class="h-8" src="img/logos/linkedin.svg")
+            a(class="mx-4 hover:scale-110 duration-300 ease-in-out" href="https://github.com/sondregronas")
+                img(class="h-8" src="img/logos/github.svg")
+            a(class="mx-4 hover:scale-110 duration-300 ease-in-out" href="https://youtube.com/@sondregronas")
+                img(class="h-8" src="img/logos/youtube.svg")

@@ -19,6 +19,9 @@ PAGES = {
     'views/podcasts.pug': {'title': f'Podcasts - {SITE_NAME}',
                            'podcasts': get_podcasts_data(),
                            'og_description': 'Sondre Grønås has worked with a lot of podcasts, here are some of them.'},
+    # contact
+    'views/contact.pug': {'title': f'Contact - {SITE_NAME}',
+                          'og_description': 'I\'m usually available for hire, and emails are always welcome. Feel free to reach out!'},
     # Legacy articles - might be removed in the future
     'views/legacy/managing-postgresql-on-a-synology-server.pug': {
         'title': 'Deprecated - Managing PostgreSQL on a Synology server',
