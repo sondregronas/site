@@ -3,6 +3,7 @@ import os
 import shutil
 from csv import DictReader
 
+import minify_html
 from jinja2 import Environment, FileSystemLoader
 
 env = Environment(
@@ -59,3 +60,17 @@ def generate_sitemap(base_url: str) -> None:
               '</urlset>'
 
     open('../dist/sitemap.xml', 'w').write(sitemap)
+
+
+def minimize_dist() -> None:
+    for root, _, files in os.walk('../dist'):
+        for file in files:
+            if file.endswith('.html') or file.endswith('.css'):
+                original_raw_html = open(os.path.join(root, file), 'rb').read().decode('utf-8')
+                optimized = minify_html.minify(original_raw_html,
+                                               minify_js=True,
+                                               remove_processing_instructions=True,
+                                               do_not_minify_doctype=True,
+                                               ensure_spec_compliant_unquoted_attribute_values=True,
+                                               keep_spaces_between_attributes=True)
+                open(os.path.join(root, file), 'wb').write(optimized.encode('utf-8'))

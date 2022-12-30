@@ -4,6 +4,7 @@ from __init__ import *
 
 BASE_URL = 'https://sondregronas.com'
 SITE_NAME = 'Sondre Grønas'
+DEV_MODE = os.path.exists('../dist')  # use path.exists for now to check if in dev mode, removes analytics
 
 PAGES = {
     'views/index.pug': {},
@@ -34,6 +35,7 @@ metadata = {
     'og_image_fallback': f'{BASE_URL}/logo.png',
     'og_description_fallback': 'Sondre Grønås is a passionate ICT-educator and media engineer from Norway.',
     'year': datetime.now().year,
+    'dev': DEV_MODE,
 }
 
 public_to_dist()
@@ -41,5 +43,6 @@ open('../dist/CNAME', 'w').write(BASE_URL.split('//')[1])
 for page, data in PAGES.items():
     write_html(page, data | metadata)
 generate_sitemap(BASE_URL)
+minimize_dist()
 
 os.system('npx tailwindcss -o ../dist/tailwind.min.css --minify')
