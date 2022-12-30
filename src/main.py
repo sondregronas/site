@@ -43,6 +43,8 @@ open('../dist/CNAME', 'w').write(BASE_URL.split('//')[1])
 for page, data in PAGES.items():
     write_html(page, data | metadata)
 generate_sitemap(BASE_URL)
-minimize_dist()
+
+if not DEV_MODE:
+    minimize_dist()
 
 os.system('npx tailwindcss -o ../dist/tailwind.min.css --minify')
