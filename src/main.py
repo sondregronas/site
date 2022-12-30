@@ -46,5 +46,4 @@ generate_sitemap(BASE_URL)
 
 if not DEV_MODE:
     minimize_dist()
-
-os.system('npx tailwindcss -o ../dist/tailwind.min.css --minify')
+    os.system('npx tailwindcss -o ../dist/tailwind.min.css --minify')

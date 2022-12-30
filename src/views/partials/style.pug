@@ -1,2 +1,6 @@
 link(rel='stylesheet' href='style.css')
-link(rel='stylesheet' href='tailwind.min.css')
+// Tailwind CSS
+if dev
+    script(src="https://cdn.tailwindcss.com")
+else
+    link(rel='stylesheet' href='tailwind.min.css')
